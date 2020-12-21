@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                docker build -t xiaohongwu/net5test:v1 -f ./src/CICDTest/Dockerfile .
+                docker build -t net5test:v1 -f ./src/CICDTest/Dockerfile .
             }
         }
         stage('Test') {
