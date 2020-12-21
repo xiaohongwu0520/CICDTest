@@ -20,6 +20,7 @@ namespace CICDTest.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.User = new List<string>() { "张珊", "李四", "王五", "小六" };
             return View();
         }
 
