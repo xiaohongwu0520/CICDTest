@@ -5,12 +5,11 @@ pipeline {
         stage('Git CheckOut') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '13b26195-9c74-467c-90f7-0105adf854f4', url: 'https://github.com/xiaohongwu0520/CICDTest.git']]])
-                echo 'Git CheckOut'
             }
         }
         stage('Build') {
             steps {
-                echo 'Build'
+                docker build -t xiaohongwu/net5test:v1 -f ./src/CICDTest/Dockerfile .
             }
         }
         stage('Test') {
