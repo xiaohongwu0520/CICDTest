@@ -8,7 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["./src/CICDTest/CICDTest.csproj", "CICDTest/"]
 RUN dotnet restore "./src/CICDTest/CICDTest.csproj"
-COPY . .
+COPY ./src .
 WORKDIR "/src/CICDTest"
 RUN dotnet build "CICDTest.csproj" -c Release -o /app/build
 
